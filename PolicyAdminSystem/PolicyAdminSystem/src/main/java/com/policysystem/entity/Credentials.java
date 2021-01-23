@@ -1,8 +1,12 @@
 package com.policysystem.entity;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class Credentials {
 
-		 
+		@NotBlank(message="Unser Name cannot be empty!!")
+		@Size(min=5, max=20, message="Username must be 5-20 characters !!")
 	    private String username;
 	    private String password;
 	 

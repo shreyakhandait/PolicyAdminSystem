@@ -27,7 +27,7 @@ public class CustomerPolicy {
 	private String policyNumber;
 
 	@Enumerated(EnumType.STRING)
-    @Column(length = 10)
+    @Column(length = 100)
 	private Product product;
 	
 	@NotBlank(message = "Customer Name cannot be left blank")

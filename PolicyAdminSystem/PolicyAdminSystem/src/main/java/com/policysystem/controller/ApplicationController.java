@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.policysystem.entity.Credentials;
 import com.policysystem.entity.CustomerPolicy;
 import com.policysystem.entity.Product;
 import com.policysystem.entity.SearchPolicy;
@@ -30,7 +33,11 @@ public class ApplicationController {
 	
 	
 	@GetMapping("/login")
-	public String loginView() {
+	public String loginView(@Valid @ModelAttribute("Credentials") Credentials credential, BindingResult result,  Model model) {
+		if(result.hasErrors()) {
+			
+		}
+		model.addAttribute("Credentials", new Credentials());
 		return "user/login";
 	}
 
@@ -46,7 +53,13 @@ public class ApplicationController {
 		model.addAttribute("product", Product.values());
 		return "user/searchPolicy";
 	}
-
+	
+	@GetMapping("/user/home/user/addPolicy")
+	public String add(Model model) {
+		model.addAttribute("product", Product.values());
+		System.out.println(":::::");
+		return "user/addpolicy";
+	}
 	
 	@GetMapping("/user/addPolicy")
 	public String addPolicy(Model model) {
