@@ -29,9 +29,9 @@ form {
 		<div class="form-outline mb-4 container col-md-5">
 	        <label for="policyNumber" class="form-label">
 	        	Policy Number
-	        </label>
-	        <input type="text" id="policyNumber" class="form-control" placeholder="Enter Policy Number" name="policyNumber" />
-	    </div>
+	        </label> <input type="text" id="policyNumber" class="form-control"
+				placeholder="Enter Policy Number" name="policyNumber" required />
+		</div>
 	    <div class="form-outline mb-4 container col-md-5">
 	    	<label for="product" class="form-label">
 	    		Product

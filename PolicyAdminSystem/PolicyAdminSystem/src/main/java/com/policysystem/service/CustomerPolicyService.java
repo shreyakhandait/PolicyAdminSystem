@@ -1,8 +1,5 @@
 package com.policysystem.service;
 
-import java.nio.charset.Charset;
-import java.util.Random;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +20,12 @@ public class CustomerPolicyService {
 		customerPolicy.setPolicyNumber(getAlphaNumericString(8));
 		return this.customerPolicyRepository.save(customerPolicy);
 	}
-	
+
 	public CustomerPolicy searchCustomerPolicy(SearchPolicy searchPolicy) {
-		return this.customerPolicyRepository.findByPolicyNumberAndProduct(searchPolicy.getPolicyNumber(), searchPolicy.getProduct());
+		return this.customerPolicyRepository.findByPolicyNumberAndProduct(searchPolicy.getPolicyNumber(),
+				searchPolicy.getProduct());
 	}
-	
+
 	String getAlphaNumericString(int n) {
 
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";

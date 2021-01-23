@@ -33,10 +33,14 @@ public class ApplicationController {
 	
 	
 	@GetMapping("/login")
-	public String loginView(@Valid @ModelAttribute("Credentials") Credentials credential, BindingResult result,  Model model) {
-		if(result.hasErrors()) {
-			
-		}
+	public String loginView(Model model, String error, String logout) {
+		model.addAttribute("pageTitle", "User-Login");
+        if(error != null) {
+			model.addAttribute("errorMsg", "Username Password Mismatch");
+        }
+        if(logout != null) {
+            model.addAttribute("ll", "You have successfully logged out");
+        }
 		model.addAttribute("Credentials", new Credentials());
 		return "user/login";
 	}
@@ -71,7 +75,10 @@ public class ApplicationController {
 	public String addedPolicy(@Valid CustomerPolicy user, BindingResult result, Model model) {
 		System.out.println(model.getAttribute("j"));
 		if(result.hasErrors()) { 
-			System.out.println(result.getFieldError());
+			model.addAttribute("errors", result.getFieldError().getDefaultMessage());
+            model.addAttribute("product", Product.values());
+            System.out.println("???::::" + user.getProduct());
+            return "user/addpolicy";
 		}
 		System.out.println(Product.values());
 		System.out.println(user.getCustMobileNumber());

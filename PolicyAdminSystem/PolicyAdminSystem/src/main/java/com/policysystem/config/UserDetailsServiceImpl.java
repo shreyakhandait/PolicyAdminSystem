@@ -24,6 +24,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public UserDetailsServiceImpl(PasswordEncoder passwordEncoder) {
 		this.passwordEncoder = passwordEncoder;
 	}
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Properties p = new Properties();
@@ -37,12 +38,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		if(p.getProperty("username").equals(username)) {
+
+		if (p.getProperty("username").equals(username)) {
 			SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority("admin");
-			return new User(username, passwordEncoder.encode(p.getProperty("password")), List.of(simpleGrantedAuthority));
-		}
-		else {
+			return new User(username, passwordEncoder.encode(p.getProperty("password")),
+					List.of(simpleGrantedAuthority));
+		} else {
 			throw new UsernameNotFoundException("user not found with username " + username);
 		}
 	}

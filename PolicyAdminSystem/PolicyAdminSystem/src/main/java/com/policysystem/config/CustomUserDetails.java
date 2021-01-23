@@ -12,12 +12,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
 public class CustomUserDetails implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	Properties p = new Properties();
+
 	public CustomUserDetails() {
 		try {
 			InputStream is = new FileInputStream("src/main/resources/application.properties");

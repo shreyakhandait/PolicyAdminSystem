@@ -17,6 +17,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
 
 @Entity
 @Table(name = "customerPolicyTable")
@@ -42,7 +43,7 @@ public class CustomerPolicy {
 	private String custEmailAddress;
 	
 	@Column(name = "date", columnDefinition = "DATE")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat (pattern = "yyyy-MM-dd")
 	@Past(message="Date of Birth should be past date")
 	private Date custDOB;
 

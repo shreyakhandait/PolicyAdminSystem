@@ -6,10 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="customerAddressTable")
+@Table(name = "customerAddressTable")
 public class Address {
 
-//	Add a;
 	@Id
 	@GeneratedValue
 	private int addressId;

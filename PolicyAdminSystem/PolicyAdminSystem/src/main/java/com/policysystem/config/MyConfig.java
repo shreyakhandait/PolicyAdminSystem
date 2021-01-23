@@ -47,19 +47,13 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
 		String password = b.encode("admin");
-		auth.inMemoryAuthentication()
-			.withUser("admin").password("{noop}admin").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("ADMIN");
 	}
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.headers().frameOptions().disable().and()
-			.csrf().disable()
-			.authorizeRequests()
-			.antMatchers("/**").hasAnyRole("ADMIN")
-			.and().formLogin().loginPage("/login").loginProcessingUrl("/perform_login")
-				.defaultSuccessUrl("/home",true)
-			.permitAll()
-			.and().logout();
+		http.headers().frameOptions().disable().and().csrf().disable().authorizeRequests().antMatchers("/**")
+				.hasAnyRole("ADMIN").and().formLogin().loginPage("/login").loginProcessingUrl("/perform_login")
+				.defaultSuccessUrl("/home", true).permitAll().and().logout();
 	}
-}	
+}
