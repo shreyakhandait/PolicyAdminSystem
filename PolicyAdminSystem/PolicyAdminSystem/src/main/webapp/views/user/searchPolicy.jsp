@@ -8,6 +8,20 @@
 <meta charset="ISO-8859-1">
 <title>Search Policy</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<style type="text/css">
+form {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    background-color: white;
+    margin-left:28%;
+    margin-right:28%;
+    margin-top: 10%;
+    padding-top:10px;
+    padding-bottom:10px;
+ }
+</style>
+
+
 </head>
 <body>
 

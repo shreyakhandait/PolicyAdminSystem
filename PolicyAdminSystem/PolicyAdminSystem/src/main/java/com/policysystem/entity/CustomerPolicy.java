@@ -1,8 +1,6 @@
 package com.policysystem.entity;
 
-import java.time.LocalDate;
 import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,30 +12,22 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "customerPolicyTable")
 public class CustomerPolicy {
+	
 
 	@Id
-	@GeneratedValue
-	public int customerId;
-
-	@GeneratedValue(generator = "UUID")
-	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-	@Size(min=8, max=8, message = "Policy Number should be 8 digits/characters")
 	private String policyNumber;
-	
+
 	@Enumerated(EnumType.STRING)
     @Column(length = 10)
-//	@NotBlank(message = "Product cannot be left blank")
 	private Product product;
 	
 	@NotBlank(message = "Customer Name cannot be left blank")
@@ -51,7 +41,9 @@ public class CustomerPolicy {
 	@Email(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Email Should be like XYZ@smart.com")
 	private String custEmailAddress;
 	
+	@Column(name = "date", columnDefinition = "DATE")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Past(message="Date of Birth should be past date")
 	private Date custDOB;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -128,11 +120,4 @@ public class CustomerPolicy {
 		this.custAddress = custAddress;
 	}
 
-	public int getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
 }

@@ -8,10 +8,19 @@
 <meta charset="ISO-8859-1">
 <title>User Add Policy Form</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+<style type="text/css">
+.addbtn{
+margin-right:90px;
+}
+.cancelbtn{
+margin-left:30px;
+}
+</style>
 </head>
 <body>
 	<form action="/user/addedPolicy" method="POST" >
-		<div class="form-outline mb-4 container col-md-5">
+			<div class="form-outline mb-4 container col-md-5">
 	        <label for="customerName" class="form-label">
 	        	Customer Name
 	        </label>
@@ -24,7 +33,7 @@
 	        <input type="text" id="custMobileNumber" class="form-control" placeholder="Enter Customer Mobile Number"  name="custMobileNumber" value="${user.custMobileNumber}"/>
 	    </div>
 	   	<div class="form-outline mb-4 container col-md-5">
-	        <label for="dob" class="form-label">
+	        <label for="dob"  class="form-label">
 	        	Date Of Birth
 	        </label>
 	        <input type="date" id="dob" class="form-control" placeholder="Enter Date Of Birth"  name="custDOB" value="${user.custDOB}"/>
@@ -71,11 +80,10 @@
 			</select>
 	    </div>
 	    <div class="form-outline mb-4 container text-center">
-           	<button class="btn btn-lg btn-primary btn-block" type="submit">Add Policy</button>
+           	<button class="btn btn-lg btn-primary btn-block addbtn" type="submit">Add Policy</button>
+           	 <a href = "/home"><button class="btn btn-lg btn-primary btn-block cancelbtn" type="button">Cancel</button></a>	
         </div>
-        <div class="form-outline mb-4 container text-center">
-           	<button class="btn btn-lg btn-primary btn-block" type="cancel">Cancel</button>
-        </div>
+       
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 	</form>
