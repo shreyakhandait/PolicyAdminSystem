@@ -9,6 +9,9 @@
 <title>Search Policy</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <style type="text/css">
+body{
+background-color: white;
+}
 form {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
@@ -19,13 +22,22 @@ form {
     padding-top:10px;
     padding-bottom:10px;
  }
+ #contact h3 {
+   margin-left: 30%;
+   margin-top: 2%
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
 </style>
 
 
 </head>
 <body>
 
-	<form action="/user/afterSearchPolicy" method="POST">
+	<form action="/user/afterSearchPolicy" id="contact" method="POST">
+	  <h3>Search Policy</h3>
+	  <br>
 		<div class="form-outline mb-4 container col-md-5">
 	        <label for="policyNumber" class="form-label">
 	        	Policy Number
@@ -36,7 +48,7 @@ form {
 	    	<label for="product" class="form-label">
 	    		Product
 	    	</label>
-	    	<select name="product" id="tutorType">
+	    	<select name="product" class="col-md-12" id="tutorType">
 			    <option value=""></option>
 			    <c:forEach items="${product}" var="value">
 			       <option>${value}</option>

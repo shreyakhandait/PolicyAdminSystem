@@ -6,6 +6,9 @@
 <meta charset="ISO-8859-1">
 <title>Home Page</title>
 <style>
+body{
+background-color:white;
+}
 .btn {
 	background-color: #1877f2;
 	color: white;

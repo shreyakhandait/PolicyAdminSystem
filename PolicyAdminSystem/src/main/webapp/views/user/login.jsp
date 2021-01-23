@@ -11,6 +11,9 @@
 	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
 <style type="text/css">
+body{
+background-color:white;
+}
 form {
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
@@ -21,7 +24,13 @@ form {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  margin-left:30%;
+}
 .btn {
 	background-color: #1877f2;
 	color: white;
@@ -39,8 +48,8 @@ form {
 </head>
 <body>
 
-	<form action="perform_login" method="POST">
-
+	<form action="perform_login" id="contact" method="POST">
+     <h3>Log In</h3>
 		<div class="form-outline mb-4 container col-md-5">
 			<div class="form-group ${error != null ? 'has-error' : '' }"
 				style="color: red">${errorMsg}</div>

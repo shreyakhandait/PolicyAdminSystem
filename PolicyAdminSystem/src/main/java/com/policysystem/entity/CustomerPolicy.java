@@ -31,6 +31,7 @@ public class CustomerPolicy {
     @Column(length = 100)
 	private Product product;
 	
+	@Size(min=3, max=20, message="Name should be of 3 letters or max 20 letters")
 	@NotBlank(message = "Customer Name cannot be left blank")
 	private String custName;
 	

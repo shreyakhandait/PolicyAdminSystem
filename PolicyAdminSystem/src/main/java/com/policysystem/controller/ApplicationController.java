@@ -36,7 +36,7 @@ public class ApplicationController {
 	public String loginView(Model model, String error, String logout) {
 		model.addAttribute("pageTitle", "User-Login");
         if(error != null) {
-			model.addAttribute("errorMsg", "Username Password Mismatch");
+			model.addAttribute("errorMsg", "Username Password Incorrect");
         }
         if(logout != null) {
             model.addAttribute("ll", "You have successfully logged out");
