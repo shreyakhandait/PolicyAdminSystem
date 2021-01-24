@@ -43,10 +43,10 @@ public class CustomerPolicy {
 	@Email(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$", message = "Email Should be like XYZ@smart.com")
 	private String custEmailAddress;
 	
+	
 	@Column(name = "date", columnDefinition = "DATE")
 	@DateTimeFormat (pattern = "yyyy-MM-dd")
-	@Past(message="Date of Birth should be past date")
-	private Date custDOB;
+	private String custDOB;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address custAddress;
@@ -56,7 +56,7 @@ public class CustomerPolicy {
 	}
 
 	public CustomerPolicy(Product product, String custName, String custMobileNumber, String custEmailAddress,
-			Date custDOB, Address custAddress) {
+			 String custDOB, Address custAddress) {
 		super();
 		this.product = product;
 		this.custName = custName;
@@ -106,11 +106,11 @@ public class CustomerPolicy {
 		this.custEmailAddress = custEmailAddress;
 	}
 
-	public Date getCustDOB() {
+	public String getCustDOB() {
 		return custDOB;
 	}
 
-	public void setCustDOB(Date custDOB) {
+	public void setCustDOB(String custDOB) {
 		this.custDOB = custDOB;
 	}
 

@@ -74,6 +74,7 @@ tr:nth-child(even) {
 			<th>Customer Name</th>
 			<th>Customer Mobile Number</th>
 			<th>Customer Email Address</th>
+			<th>Customer Date of Birth</th>
 
 
 		</tr>
@@ -83,6 +84,9 @@ tr:nth-child(even) {
 			<td>${policy.getCustName() }</td>
 			<td>${policy.getCustMobileNumber() }</td>
 			<td>${policy.getCustEmailAddress() }</td>
+			<td>${policy.getCustDOB() }</td>
+
+
 		</tr>
 	</table>
   <div class="form-outline mb-4 container text-center">
